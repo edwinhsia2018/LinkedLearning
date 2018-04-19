@@ -1,7 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
-  var Author = sequelize.define("Author", {
+  var Library = sequelize.define("Library", {
     // Giving the Author model a name of type STRING
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    rating: DataTypes.INTEGER,
+    tags: DataTypes.STRING,
+    favorite: DataTypes.BOOLEAN,
+    
+
   });
 
   Author.associate = function(models) {

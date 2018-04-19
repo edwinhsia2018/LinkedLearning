@@ -14,18 +14,39 @@ $(document).ready(function() {
   // Looks for a query param in the url for author_id
   var url = window.location.search;
   var authorId;
+  var titleId;
+  var categoryId;
+  var tagId;
+
   if (url.indexOf("?author_id=") !== -1) {
     authorId = url.split("=")[1];
-    getPosts(authorId);
+    getAuthorPosts(authorId);
   }
   // If there's no authorId we just get all posts as usual
   else {
-    getPosts();
+    alert("No links found.  Please check your search terms");
   }
 
+  if (url.indexOf("?title_id=") !== -1) {
+    titleId = url.split("=")[1];
+    getTitlePosts(titleId);
+  }
+  // If there's no authorId we just get all posts as usual
+  else {
+    alert("No links found.  Please check your search terms");
+  }
+  
+  if (url.indexOf("?category_id=") !== -1) {
+    categoryId = url.split("=")[1];
+    getCategoryPosts(categoryId);
+  }
+  // If there's no authorId we just get all posts as usual
+  else {
+    alert("No links found.  Please check your search terms");
+  }
 
   // This function grabs posts from the database and updates the view
-  function getPosts(author) {
+  function getAuthorPosts(author) {
     authorId = author || "";
     if (authorId) {
       authorId = "/?author_id=" + authorId;
@@ -42,6 +63,40 @@ $(document).ready(function() {
     });
   }
 
+  function getTitlePosts(title) {
+    titleId = title || "";
+    if (titleId) {
+      titleId = "/?title_id=" + titleId;
+    }
+    $.get("/api/posts" + titleId, function(data) {
+      console.log("Posts", data);
+      posts = data;
+      if (!posts || !posts.length) {
+        displayEmpty(title);
+      }
+      else {
+        initializeRows();
+      }
+    });
+  }
+
+  function getCategoryPosts(category) {
+    categoryId = category || "";
+    if (categoryId) {
+      categoryId = "/?title_id=" + categoryId;
+    }
+    $.get("/api/posts" + categoryId, function(data) {
+      console.log("Posts", data);
+      posts = data;
+      if (!posts || !posts.length) {
+        displayEmpty(category);
+      }
+      else {
+        initializeRows();
+      }
+    });
+  }
+  
   // This function does an API call to delete posts
   function deletePost(id) {
     $.ajax({
