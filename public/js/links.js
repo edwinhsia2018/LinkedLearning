@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  /* global moment */
 
   // blogContainer holds all of our posts
   var blogContainer = $(".blog-container");
@@ -95,17 +94,6 @@ $(document).ready(function() {
         initializeRows();
       }
     });
-  }
-  
-  // This function does an API call to delete posts
-  function deletePost(id) {
-    $.ajax({
-      method: "DELETE",
-      url: "/api/posts/" + id
-    })
-      .then(function() {
-        getPosts(postCategorySelect.val());
-      });
   }
 
   // InitializeRows handles appending all of our constructed post HTML inside blogContainer

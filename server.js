@@ -25,17 +25,15 @@ app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
+
 // Handlebars
-app.set('views', './app/views')
-app.engine('hbs', exphbs({
-  extname: '.hbs'
-}));
-app.set('view engine', '.hbs');
+app.engine('handlebars', exphbs({defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/link-api-routes.js")(app);
-require("./routes/author-api-routes.js")(app);
+require('./app/config/passport/passport.js')(passport, models.user);
 var authRoute = require('./routes/auth.js')(app);
+var routes = require("./controllers/bookmark_controller.js")
 
 // Syncing our sequelize models and then starting our Express app
 db.sequelize.sync({ force: true }).then(function () {

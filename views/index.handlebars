@@ -1,38 +1,71 @@
-<h1>Cats!</h1>
+    <div class="container p-3" style="background-color: rgb(80, 42, 116)">
+        <div class="row">
+            <div class="md-col-12">
+                <h1 class="text-warning">
+                    <strong>Linked Learning</strong>
+                </h1>
+                <p class="lead">
+                    <strong>Saving and organizing class links since 2018</strong>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="form-group text-white">
+                    <label for="url">
+                        <strong>Add link</strong>
+                    </label>
+                    <input type="email" class="form-control" id="url" placeholder="Enter a link here">
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                        <div class="input-group-append">
+                            <label for="url">
+                                <strong>Add link</strong>
+                            </label>
+                            <button class="btn btn-outline-secondary dropdown-toggle text-white" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <strong></strong>Category</strong>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">JavaScript</a>
+                                <a class="dropdown-item" href="#">JQuery</a>
+                                <a class="dropdown-item" href="#">Node.js</a>
+                                <div role="separator" class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<h2>Cats that are not sleepy!</h2>
+                <div class="form-group text-white">
+                    <label for="exampleFormControlTextarea1">
+                        <strong>Description</strong>
+                    </label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="form-group text-white">
+                    <label for="tags">
+                        <strong>Tags</strong>
+                    </label>
+                    <input type="text" class="form-control" id="tags">
+                </div>
+            </div>
 
-<ul>
-  {{#each cats}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
+            <div class="col-md-3">
+                <form class="create-form">
 
-<h2>Cats that are sleepy!</h2>
-
-<ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Cat</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Cat Name:</label>
-    <input type="text" id="ca" name="name">
-  </div>
-
-  <div class="form-group">
-    <label for="sleepy">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
-  </div>
-
-  <button type="submit">Add Cat</button>
-</form>
+                    <div class="form-group text-white">
+                        <label for="username">Username: </label>
+                        <input type="text" id="username" name="username">
+                    </div>
+                    <div class="form-group text-white">
+                        <label for="password">Password: </label>
+                        <input type="text" id="password" name="password">
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
