@@ -35,7 +35,7 @@ app.set('view engine', '.hbs');
 // Routes
 require("./routes/link-api-routes.js")(app);
 require("./routes/author-api-routes.js")(app);
-var authRoute = require('./app/routes/auth.js')(app);
+var authRoute = require('./routes/auth.js')(app);
 
 // Syncing our sequelize models and then starting our Express app
 db.sequelize.sync({ force: true }).then(function () {
