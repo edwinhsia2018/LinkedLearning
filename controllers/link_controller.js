@@ -5,12 +5,14 @@ var link = require("../models/links.js")
 
 router.get("/", function(req, res){
     link.all(function(data){
-        var hbsObject = {
+        var searchObj = {
             link: data
         };
-        res.render("index", hbsObject);
+        res.render("index", searchObj);
     });
 });
+
+                                                                                                                                                                                                                                        
 
 router.post("/api/links", function(req, res){
     link.create([

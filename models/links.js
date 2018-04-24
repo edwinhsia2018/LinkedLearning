@@ -16,13 +16,5 @@ module.exports = function (sequelize, DataTypes) {
     favorite: DataTypes.BOOLEAN
   });
 
-  Link.associate = function (models) {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
-    Link.belongsTo(models.Author, {
-      foreignKey: { allowNull: false }
-    });
-  };
-
   return Link;
 };

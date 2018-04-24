@@ -14,23 +14,12 @@ app.use(bodyParser.json());
 // Static directory
 app.use(express.static("public"));
 
-// Setting up Passport for Username/Password authentication
-app.get('/', function (req, res) {
-  res.send('Welcome to Linked Learning.  Please enter your username/password.');
-});
-app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })); // session secret
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
-
-
 // Handlebars
 app.engine('handlebars', exphbs({defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Routes
-require('./app/config/passport/passport.js')(passport, models.user);
-var authRoute = require('./routes/auth.js')(app);
-var routes = require("./controllers/bookmark_controller.js")
+var routes = require("./controllers/link_controller.js")
 
 // Syncing our sequelize models and then starting our Express app
 db.sequelize.sync({ force: true }).then(function () {

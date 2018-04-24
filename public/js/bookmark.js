@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
   // Interface Panel Buttons
-  $("input:radio[name='group1']").click(function() {
+  $("input:radio[name='group1']").click(function () {
     $('.viewPanel').hide();
     $('#' + $("input:radio[name='group1']:checked").val()).show();
   });
@@ -9,8 +9,9 @@ $(document).ready(function () {
   // Click handler for submitting a bookmark
   $(document).on("submit", "#bookmarksubmit", function (event) {
     var id = $(this).data("id");
+    var urlTitle = $("#url-input");
     var titleEntry = $.ajax({
-      url: $("#url-input").val().trim(),
+      url: "http://textance.herokuapp.com/title/" + urlTitle,
       complete: function (data) {
       }
     });
@@ -66,8 +67,8 @@ $(document).ready(function () {
       title: $("#title-input").val().trim(),
       category: $("#category-input").val().trim(),
       added_by: $("#enteredBy").val().trim(),
-      tags: [].val().trim()  
-  };
+      tags: [].val().trim()
+    };
 
     $.ajax("/api/bookmarks/" + id, {
       type: "GET",
