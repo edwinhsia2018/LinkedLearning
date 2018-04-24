@@ -1,0 +1,27 @@
+{{#each Bookmark}}
+<div class="row">
+	<button class="remote-favorite">Remove from My Bookmarks</button>
+	<div class="md-col-4">
+		<div id="result-title"><strong>Title: </strong></div>{{../title}}
+		<br> <div id="result-title"><strong>Category: </strong></div>{{../category}}
+		<br> <div id="result-title"><strong>Entered by: </strong>{{../timestamp}}</div>
+		<br>
+	</div>
+	<div class="md-col-4">
+		<h3><div id="result-title"><strong>Slack Channel: </strong></div>{{../slack_channel}} Entered by: {{../author}}</h3>
+	</div>
+	<div class="md-col-4">
+		<h3><div id="result-title"><strong>Rating: </strong></div>{{../rating}}</h3>
+	</div>
+</div>
+<div class="row">
+	<div class="md-col-12">
+		<h3><div id="result-title"><strong>Description: </strong></div></h3>
+		<br> <h3>{{../summary}}</h3>
+		<br> <h3><div id="result-title"><strong>Keywords/Tags: </strong></div></h3>
+		<br> <h3>{{../tags}}</h3>
+		<br> <h3><div id="result-title"><strong>URL: </strong></div>{{../url}}</h3>
+		<hr>
+	</div>
+</div>
+{{/each}} {{!-- {{#if found}} {{>bookmark-block}} {{/if}} --}}

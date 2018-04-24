@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bootcamp Bookmarks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css" title="no title">
+</head>
+
+<body style="background-color: rgb(80, 42, 116)">
+    <div class="container p-3" style="background-color: rgb(170, 107, 229)">
+        <div class="row">
+            <div class="col-md-5">
+                <h1 class="text-warning">
+                    <strong>Bootcamp Bookmarks</strong>
+                </h1>
+                <p class="lead">
+                    <strong>Saving and organizing class links since 2018</strong>
+                </p>
+            </div>
+            <div class="col-md-3">
+                <p class="text-warning">Interface Panel:</p>
+                <input type="radio" name='group1' value="userLogin"> User Login
+                <input type="radio" name='group1' value="createUser"> New User
+                <br>
+                <input type="radio" name='group1' value="addBookmark" checked> Add Bookmark
+                <input type="radio" name='group1' value="searchBookmark"> Search
+                <br>
+                <input type="radio" name='group1' value="showBookmarks"> Bookmarks
+            </div>
+
+            <div class="col-md-4 viewPanel" style="background-color: rgb(137, 77, 193)" id="userLogin">
+
+                <!-- for userLogin, I need email and password -->
+
+                <form class="create-form">
+                    <div class="form-group text-white">
+                        <label for="email">E-mail: </label>
+                        <input type="text" id="email" name="email">
+                        <br>
+                        <label for="password">Password: </label>
+                        <input type="text" id="password" name="password">
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+        </div>
+        <div class="row" style="background-color: rgb(116, 53, 174)" id="mainDiv">
+
+            <form class="viewPanel create-form" id="createUser">
+                <!-- Edwin, for createUser, I need fname, lname, email, password -->
+                <div class="form-group text-white">
+                    <label for="fname">First name: </label>
+                    <input type="text" id="fname" name="fname">
+                    <br>
+                    <label for="fname">Last name: </label>
+                    <input type="text" id="lname" name="lname">
+                    <br>
+                    <label for="email">E-mail: </label>
+                    <input type="text" id="email" name="email">
+                    <br>
+                    <label for="password">Password: </label>
+                    <input type="text" id="password" name="password">
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+
+            <form class="col-md-12 viewPanel" id="addBookmark" style="display: block;">
+                <div class="form-group text-white">
+                    <label for="url">
+                        <strong>Add link</strong>
+                    </label>
+                    <input type="email" class="form-control" id="url" placeholder="Enter a link here">
+                </div>
+                <div class="form-group text-white">
+                    <label for="exampleFormControlTextarea1">
+                        <strong>Description</strong>
+                    </label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="form-group text-white">
+                    <label for="tags">
+                        <strong>Tags</strong>
+                    </label>
+                    <input type="text" class="form-control" id="tags">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary dropdown-toggle text-white" type="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <strong></strong>Category</strong>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" id="htmlcss">html/css</a>
+                            <a class="dropdown-item" id="javascript">JavaScript</a>
+                            <a class="dropdown-item" id="jquery">jQuery</a>
+                            <a class="dropdown-item" id="ajax">Ajax</a>
+                            <a class="dropdown-item" id="firebase">Firebase</a>
+                            <a class="dropdown-item" id="nodejs">Node.js</a>
+                            <a class="dropdown-item" id="mysql">MySQL</a>
+                            <a class="dropdown-item" id="express">Express</a>
+                            <a class="dropdown-item" id="handlebars">Handlebars</a>
+                            <a class="dropdown-item" id="sequelizer">Sequelizer</a>
+                            <a class="dropdown-item" id="sequelizer">MongoDB</a>
+                            <a class="dropdown-item" id="react">React.js</a>
+                            <div role="separator" class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+
+            <div class="col-md-12 p-3 viewPanel" id="showBookmarks">
+                <h3 class="text-warning">
+                    My Bookmarks</h3>
+                <div class="bg-light text-dark p-3">
+                    <img src="bookmark_dummy.png" alt="Sam's Samwich" width="90%" />
+                    <button type="button" class="btn btn-outline-secondary">Remove from My Bookmarks</button>
+                    <div class="row pl-3">
+                        <p>
+                            <span class="bodyHead">Title: </span>
+                            <span id="titleResult">Sample Title</span>
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p>
+                                <span class="bodyHead">Category: </span>
+                                <span id="catResult">General Class</span>
+                            </p>
+                            <p>
+                                <span class="bodyHead">Date entered: </span>
+                                <span id="dateResult">Jan. 18, 2018 5:33pm</span>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p>
+                                <span class="bodyHead">Slack channel: </span>
+                                <span id="slackResult">Hacks & Helps</span>
+                            </p>
+                            <p>
+                                <span class="bodyHead">Entered by: </span>
+                                <span id="byResult">Edwin Hsia</span>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p>
+                                <span class="bodyHead">Rating </span>
+                                <span id="ratingResult">4</span> stars (
+                                <span id="voteResult">0</span> votes)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form class="col-md-12 viewPanel" id="searchBookmark">
+                <h3 class="text-warning">Search Bookmarks</h3>
+                <div class="row">
+                    <div class="form-group text-white col-md-5">
+                        <label for="tags">
+                            <strong>Entered By </strong>
+                        </label>
+                        <input type="text" class="form-control" id="enteredBy">
+                    </div>
+                    <div class="form-group text-white col-md-5">
+                        <label for="tags">
+                            <strong>Tags</strong>
+                        </label>
+                        <input type="text" class="form-control" id="tags">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary dropdown-toggle text-white" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <strong>Category</strong>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" id="htmlcss">html/css</a>
+                                <a class="dropdown-item" id="javascript">JavaScript</a>
+                                <a class="dropdown-item" id="jquery">jQuery</a>
+                                <a class="dropdown-item" id="ajax">Ajax</a>
+                                <a class="dropdown-item" id="firebase">Firebase</a>
+                                <a class="dropdown-item" id="nodejs">Node.js</a>
+                                <a class="dropdown-item" id="mysql">MySQL</a>
+                                <a class="dropdown-item" id="express">Express</a>
+                                <a class="dropdown-item" id="handlebars">Handlebars</a>
+                                <a class="dropdown-item" id="sequelizer">Sequelizer</a>
+                                <a class="dropdown-item" id="sequelizer">MongoDB</a>
+                                <a class="dropdown-item" id="react">React.js</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary dropdown-toggle text-white" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <strong>Slack Channel </strong>
+                            </button>
+
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" id="careers">careers</a>
+                                <a class="dropdown-item" id="class_activities">class_activities</a>
+                                <a class="dropdown-item" id="classroomnotes">classroomnotes</a>
+                                <a class="dropdown-item" id="group_projects">group_projects</a>
+                                <a class="dropdown-item" id="hacks_and_helps">hacks_and_helps</a>
+                                <a class="dropdown-item" id="homework">homework_assignments</a>
+                                <a class="dropdown-item" id="updates">importantclassupdates</a>
+                                <a class="dropdown-item" id="parkinglot">parkinglot</a>
+                                <a class="dropdown-item" id="studygroups">studygroups</a>
+                                <a class="dropdown-item" id="virtualoffice">virtualofficehours</a>
+                                <div role="separator" class="dropdown-divider"></div>
+                                <a class="dropdown-item" id="other">Other</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary dropdown-toggle text-white" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <strong>Rating </strong>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" id="1star">1 star</a>
+                                <a class="dropdown-item" id="2stars">2 stars</a>
+                                <a class="dropdown-item" id="3stars">3 stars</a>
+                                <a class="dropdown-item" id="4stars">4 stars</a>
+                                <a class="dropdown-item" id="5stars">5 stars</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group text-white">
+                        <label for="tags">
+                            <strong>Date Entered</strong>
+                        </label>
+                        <input type="text" class="form-control" id="dateEntered">
+                    </div> -->
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- {{{ body }}} -->
+    <!-- ============================================ -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+    <script src="js/bookmark.js"></script>
+</body>
+
+</html>
