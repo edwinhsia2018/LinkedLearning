@@ -1,27 +1,117 @@
-{{#each Bookmark}}
+{{!-- {{#each Bookmark}}
 <div class="row">
 	<button class="remote-favorite">Remove from My Bookmarks</button>
 	<div class="md-col-4">
-		<div id="result-title"><strong>Title: </strong></div>{{../title}}
-		<br> <div id="result-title"><strong>Category: </strong></div>{{../category}}
-		<br> <div id="result-title"><strong>Entered by: </strong>{{../timestamp}}</div>
+		<div id="result-title">
+			<strong>Title: </strong>
+		</div>{{../title}}
+		<br>
+		<div id="result-title">
+			<strong>Category: </strong>
+		</div>{{../category}}
+		<br>
+		<div id="result-title">
+			<strong>Entered by: </strong>{{../timestamp}}</div>
 		<br>
 	</div>
 	<div class="md-col-4">
-		<h3><div id="result-title"><strong>Slack Channel: </strong></div>{{../slack_channel}} Entered by: {{../author}}</h3>
+		<h3>
+			<div id="result-title">
+				<strong>Slack Channel: </strong>
+			</div>{{../slack_channel}} Entered by: {{../author}}</h3>
 	</div>
 	<div class="md-col-4">
-		<h3><div id="result-title"><strong>Rating: </strong></div>{{../rating}}</h3>
+		<h3>
+			<div id="result-title">
+				<strong>Rating: </strong>
+			</div>{{../rating}}</h3>
 	</div>
 </div>
 <div class="row">
 	<div class="md-col-12">
-		<h3><div id="result-title"><strong>Description: </strong></div></h3>
-		<br> <h3>{{../summary}}</h3>
-		<br> <h3><div id="result-title"><strong>Keywords/Tags: </strong></div></h3>
-		<br> <h3>{{../tags}}</h3>
-		<br> <h3><div id="result-title"><strong>URL: </strong></div>{{../url}}</h3>
+		<h3>
+			<div id="result-title">
+				<strong>Description: </strong>
+			</div>
+		</h3>
+		<br>
+		<h3>{{../summary}}</h3>
+		<br>
+		<h3>
+			<div id="result-title">
+				<strong>Keywords/Tags: </strong>
+			</div>
+		</h3>
+		<br>
+		<h3>{{../tags}}</h3>
+		<br>
+		<h3>
+			<div id="result-title">
+				<strong>URL: </strong>
+			</div>{{../url}}</h3>
 		<hr>
+	</div>
+</div>
+{{/each}}  --}}
+{{!-- {{#if found}} {{>bookmark-block}} {{/if}} --}}
+
+{{#each Bookmark}}
+{{!-- <div class="col-md-12 p-3 viewPanel" id="showBookmarks"> --}}
+<div class="col-md-12 p-3 viewPanel" id="result-title">
+	<h3 class="text-warning">
+		My Bookmarks</h3>
+	<div class="bg-light text-dark p-3">
+		<button type="button" class="btn btn-outline-secondary remote-favorite">Remove from My Bookmarks</button>
+		<div class="row pl-3">
+			<p class="stayIn">
+				<span class="bodyHead">Title: </span>{{../title}}
+				{{!-- <span class="stayIn" id="titleResult">Sample Title</span> --}}
+			</p>
+		</div>
+		<div class="row">
+			<div class="col">
+				<p>
+					<span class="bodyHead">Category: </span>{{../category}}
+					{{!-- <span id="catResult">General Class</span> --}}
+				</p>
+				<p>
+					<span class="bodyHead">Date entered: </span>{{../timestamp}}
+					{{!-- <span id="dateResult">Jan. 18, 2018 5:33pm</span> --}}
+				</p>
+			</div>
+			<div class="col">
+				<p>
+					<span class="bodyHead">Slack channel: </span>{{../slack_channel}}
+					{{!-- <span id="slackResult">Hacks & Helps</span> --}}
+				</p>
+				<p>
+					<span class="bodyHead">Entered by: </span>{{../author}}
+					{{!-- <span id="byResult">Edwin Hsia</span> --}}
+				</p>
+			</div>
+			<div class="col">
+				<p>
+					<span class="bodyHead">Rating </span>{{../rating}}
+					{{!-- <span id="ratingResult">4</span> stars (
+					<span id="voteResult">0</span> votes) --}}
+					</p>
+			</div>
+		</div>
+		<div class="row px-3">
+			<p class="stayIn">
+				<span class="bodyHead">Description: </span>{{../summary}}
+				{{!-- <span id="descResult">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span> --}}
+			</p>
+			<p class="stayIn">
+				<span class="bodyHead">Tags/Keywords: </span>{{../tags}}
+				{{!-- <span id="tagsResult">Lorem ipsum, Dolor sit amet, consectetur, adipiscing elit, rocka bocka boo </span> --}}
+			</p>
+			<p class="stayIn">
+				<span class="bodyHead">URL: </span>{{../url}}
+				{{!-- <span id="urlResult">http://www.crankyoldman.com/blog/technology/april1999/a[s0euog </span> --}}
+			</p>
+		</div>
 	</div>
 </div>
 {{/each}}
